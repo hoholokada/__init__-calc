@@ -19,7 +19,14 @@ class books:
 
 name = input('Введите название книги: ')
 author = input('Введите автора книги: ')
-date = input('Введите год выпуска книги: ')
+def looking_for_error_in_date():
+    try:
+        date_def = int(input('Введите год выпуска книги: '))
+        return date_def
+    except:
+        print('Ввы ввели не числовое значение')
+        looking_for_error_in_date()
+date = looking_for_error_in_date()
 genre = input('Введите жанр книги: ')
 country = input('Введите страну выпуска: ')
 book_info = books(name, author, date, genre, country)
